@@ -55,7 +55,7 @@ public class UserDetailsMapper {
 	public static UserDetailsDto userDetailsToDto(UserDetails userDetails) {
 		return UserDetailsDto.builder()
 			      .userId(userDetails.getUserDetailsId())
-			      .username(userDetails.getUser().getUsername())
+			      .userName(userDetails.getUser().getUsername())
 			      .role(userDetails.getUser().getRole())
 			      .phoneNo(userDetails.getPhoneNumber())
 			      .gender(userDetails.getGender().toString())

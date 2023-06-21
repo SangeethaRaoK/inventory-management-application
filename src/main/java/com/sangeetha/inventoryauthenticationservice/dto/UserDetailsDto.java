@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 public class UserDetailsDto {
 	private Long userId;
 	  @Size(min = 5, max = 20)
-	  private String username;
+	  private String userName;
 	  private String role;
 	  @Size(min = 5, max = 20)
 	  private String designation;
