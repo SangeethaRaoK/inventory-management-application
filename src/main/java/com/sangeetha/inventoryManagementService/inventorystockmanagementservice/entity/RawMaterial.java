@@ -17,31 +17,23 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-@Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Data
-public class Product {
-	
-	@Id
-	@SequenceGenerator(name = "product_id_sequence",initialValue = 10000,allocationSize = 1)
-	@GeneratedValue(generator = "product_id_sequence",strategy = GenerationType.SEQUENCE)
-	private Long productId;
-	
-	@Column(length = 20)
-	private String materialName;
-	@Column(length = 100)
-	private String description;
-	private Double quantityAvailable;
-	@Enumerated(EnumType.STRING)
-	private Measurementunit quantityUnit;
-	
-	@ManyToOne
-	@JoinColumn(name = "warehouseId",referencedColumnName = "warehouseId", foreignKey = @ForeignKey(name = "FK_prod_warehouse_ID"))
-	private WareHouse warehouse;
-	
-	
-	
-
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+public class RawMaterial {
+  @Id
+  @SequenceGenerator(name = "rawmaterial_id_sequence", initialValue = 100000, allocationSize = 1)
+  @GeneratedValue(generator = "rawmaterial_id_sequence", strategy = GenerationType.SEQUENCE)
+  private Long rawMaterialId;
+  @Column(length = 20)
+  private String materialName;
+  @Column(length = 100)
+  private String description;
+  private Double quantityAvailable;
+  @Enumerated(EnumType.STRING)
+  private Measurementunit quantityunit;
+  @ManyToOne
+  @JoinColumn(name = "warehouseId", referencedColumnName = "warehouseId", foreignKey = @ForeignKey(name = "FK_raw_matr_warehouse_ID"))
+  private WareHouse warehouse;
 }
